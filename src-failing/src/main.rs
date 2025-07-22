@@ -12,7 +12,7 @@ fn run_wasmtime() -> wasmtime::Result<()> {
 
     config.target("pulley32")?;
     let engine = Engine::new(&config)?;
-    let component_bytes  = include_bytes!("../../component-model-precompile/add_wasm32-wasip1.cwasm");
+    let component_bytes  = include_bytes!("../../component-add/add_wasm32-wasip1.cwasm");
 
     let _component = match unsafe { Component::deserialize_raw(&engine, component_bytes.as_slice().into()) } {
         Ok(comp) => comp,
